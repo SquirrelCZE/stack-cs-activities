@@ -57,7 +57,7 @@ _Build a Red-black tree, with a gradual insertion of nodes with values: 12,55,9,
         * Color.
         * Lacquer. (If you want the color to be durable.)
     * Paint the printed token plates (this is necessary for the surface to work same way as whiteboard):
-        * **This is not necessary if you have token plates from pelixsklo!**
+        * **This is not necessary if you have token plates from plexiglass!**
         * base for plastic
         * 4-5 thin layers of filler
         * use sandpaper to make the surface perfectly level
