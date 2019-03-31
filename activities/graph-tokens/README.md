@@ -37,17 +37,19 @@ _Build a Red-black tree, with a gradual insertion of nodes with values: 12,55,9,
 
 ## Setup and preparation
 
-* Nodes must be 3D printed. (Any 3D printer will suffice.) It is easier to buy fillament with colors you need, however steps to color the tokens are provided below. For one token:
-    * 2x token.stl (Rims of the tokens that contains magnets.)
-    * 2x token_plate.stl (Plates on which user draws.)
+* Token must be 3D printed. (Any 3D printer will suffice.) It is easier to buy fillament with colors you need, however steps to color the tokens are provided below. For one token:
+    * 2x out/token_frame.stl (Rims of the tokens that contains magnets.)
+    * 2x out/token_plate.stl (Plates on which user draws.)
 * Token plates can be made from plexiglass, which simplifies the task a lot.
-    * 2x 60mm diameter tokens, out of white plexiglass. (Not transparent plexiglass!)
+    * 2x 60mm diameter tokens, out of 1mm white plexiglass. (Not transparent plexiglass!)
         * Laser cutter can do this.
+* Alternative to basic design, is a version where frames are hollow, and the middle part of token is either 3mm thick printed token_plate or 3mm plexiglass.
+    * Use stl parts with hollow prefix.
 * Model is designed for cube magnets of dimensions: 10x2x3 mm
 * It is designed in OpenSCAD, configuration parameters should be documented. Feel free to modify the file and customize the tokens. (token.scad)
     * Basic OpenSCAD tutorial: <https://en.wikibooks.org/wiki/OpenSCAD_User_Manual>
 * Assembly guide:
-    * Glue the magnets inside the 3D models.
+    * Glue the magnets inside the token frame.
         * There are more positions for magnets, that is necessary. Do not use all of them, try how many you need for the token to hold on the whiteboard.
         * The strength of the magnets can wary, hence you need to adjust this.
     * In case you need it, paint the tokens itself, use these layers (used canned sprays):
