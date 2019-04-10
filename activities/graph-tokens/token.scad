@@ -1,29 +1,33 @@
 
-d = 60;  // inner radius of the token, this is the visible area
+d = 60;  // diameter of the inner plate of the token, this is the real area
+k = 0.1;
 
-magnet_dim = [ 2 + 0.2, 11, 3 ];  // 3x10x2mm original
-magnet_n = 8;                     // magnet count
+magnet_dim = [ 2 + 0.2, 11, 3 + 0.1 ];  // 3x10x2mm original size
+magnet_n = 8;                           // magnet count
 
 is_inner_hollow = true;  // whenner the frames are hollow in the middle or not
 
 // used if not is_inner_hollow:
-
-bottom_t = 1;  // thickness of the inner circle
+bottom_t = 1;  // thickness of the center of frame
 
 // used if is_inner_hollow:
-inner_circle_t = 3 + 0.1;  // thickness of placte inside the frame
-inner_circle_d = d + 2;
+inner_circle_frame = 2;    // overlap of the frame over the inner plate
+inner_circle_t = 3 + 0.1;  // thickness of plate inside the frame
 
-corner_t = 2;  // cut-off of the corner of token
-t = 1;         // minimal thickness of material around magnet
-h = 3;         // height of one side
+corner_t = 1.5;  // cut-off of the corner of frame
+t = 1.5;       // thickness of material around magnet
+h = magnet_dim[2]/2 + 0.6;         // height of one side
 
 // resolution values
 $fa = 0.5;
 $fs = 0.5;
 
-big_d = d + 10 + (is_inner_hollow ? 3 : 0);  // outter diameter
-magnet_r = big_d / 2 - corner_t - t;  // radius on which center of magnet is
+
+big_d = d + (is_inner_hollow ? 2 * magnet_dim[0] + t * 4 : 0) +
+        corner_t * 2;  // outter diameter
+magnet_r = sqrt(pow(big_d / 2, 2) - pow(magnet_dim[1] / 2, 2)) -
+           magnet_dim[0] / 2 - t -
+           corner_t;  // radius on which center of magnet is
 
 make = "token_frame";  // for use with makefile
 
@@ -37,10 +41,10 @@ module token_frame() difference() {
     }
 
     if (is_inner_hollow) {
-        cylinder(d = d, h = 100, center = true);
-        cylinder(d = inner_circle_d, h = inner_circle_t, center = true);
+        cylinder(d = d - 2 * inner_circle_frame, h = 100, center = true);
+        cylinder(d = d + k*2, h = inner_circle_t, center = true);
     } else {
-        translate([ 0, 0, bottom_t ]) cylinder(d = d, h = 100);
+        translate([ 0, 0, bottom_t ]) cylinder(d = d + k*2, h = 100);
     }
 
     for (i = [0:magnet_n]) rotate([ 0, 0, i * 360 / magnet_n ]) {
@@ -50,7 +54,7 @@ module token_frame() difference() {
 
 module token_plate() {  //
     if (is_inner_hollow) {
-        cylinder(d = inner_circle_d, h = inner_circle_t, center = true);
+        cylinder(d = d, h = inner_circle_t, center = true);
     } else {
         cylinder(d = d, h = h - bottom_t);
     }

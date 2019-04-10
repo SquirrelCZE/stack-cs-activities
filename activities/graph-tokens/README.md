@@ -109,10 +109,8 @@ This should give a nice explicit visualization of the path.
 ## Gallery
 
 ![Render of token](token.png?raw=true)
-![Pic1](pics/token-construction.JPG?raw=true)
 ![Pic2](pics/token-red.JPG?raw=true)
-![Pic3](pics/token-black.JPG?raw=true)
-![Pic4](pics/token-marked.JPG?raw=true)
+![Pic4](pics/token-tree.JPG?raw=true)
 
 ## Author
 
