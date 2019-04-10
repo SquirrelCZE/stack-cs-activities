@@ -111,10 +111,9 @@ This should give a nice explicit visualization of the path.
 ![Render of token](token.png?raw=true)
 ![Pic2](pics/token-red.JPG?raw=true)
 <figure>
-  <img src="{{site.url}}/pics/token-tree.JPG?raw=true" alt="rb tree"/>
+  <img src="pics/token-tree.JPG?raw=true" alt="rb tree"/>
   <figcaption>Is this correct red-black tree?</figcaption>
 </figure>
-
 ## Author
 
 Jan Koniarik, 2019
